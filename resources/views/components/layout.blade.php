@@ -7,7 +7,7 @@
 </head>
 <body>
     <nav>
-        <a href="/">Home</a>
+        <x-nav-link href="/" style="color: green">Home</x-nav-link>
         <a href="transcribe">Transcribe</a>
     </nav>
     {{ $slot }}
