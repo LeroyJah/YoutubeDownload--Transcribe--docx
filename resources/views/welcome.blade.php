@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout.layout>
     <x-slot:heading>
         Homepage
     </x-slot:heading>
@@ -257,4 +257,4 @@
             <div class="h-14.5 hidden lg:block"></div>
         @endif
     </body>
-</x-layout>
+</x-layout.layout>
