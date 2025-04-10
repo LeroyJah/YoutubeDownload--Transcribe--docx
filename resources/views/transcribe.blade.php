@@ -10,9 +10,11 @@
         <div class="h-1/3 flex justify-center">
             Upload videos here:
         </div>
-        <div class="h-2/3 flex justify-center overflow-scroll">
-            <form action="" method="post" enctype="multipart/form-data">
-                <input type="file" name="fileUpload" id="fileUpload">
+        <div class="h-2/3 overflow-scroll">
+            <form action="/savefile" method="post" enctype="multipart/form-data">
+                @csrf
+                Select File:
+                <input type="file" name="uploadedFile" id="fileUpload">
                 <x-file-upload.button type="submit">Upload</x-file-upload.button>
             </form>
         </div>
