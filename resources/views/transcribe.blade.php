@@ -10,13 +10,24 @@
         <div class="h-1/3 flex justify-center">
             Upload videos here:
         </div>
-        <div class="h-2/3 overflow-scroll">
+        <div class="h-2/3 overflow-scroll p-2">
             <form action="/savefile" method="post" enctype="multipart/form-data">
                 @csrf
                 Select File:
                 <input type="file" name="uploadedFile" id="fileUpload">
                 <x-file-upload.button type="submit">Upload</x-file-upload.button>
             </form>
+            <div>
+                @if($errors->any())
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+            </div>
         </div>
     </div>
     <div class="w-4/6 flex justify-center bg-white p-2 border">
