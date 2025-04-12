@@ -15,7 +15,7 @@
                 @csrf
                 Select File:
                 <input type="file" name="uploadedFile" id="fileUpload">
-                <x-file-upload.button type="submit">Upload</x-file-upload.button>
+                <x-file-upload.button class="my-2" type="submit">Upload</x-file-upload.button>
             </form>
             <div>
                 @if($errors->any())
