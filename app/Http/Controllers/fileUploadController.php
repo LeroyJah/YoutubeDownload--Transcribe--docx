@@ -11,15 +11,14 @@ class fileUploadController extends Controller
         if($request->validate([
             'uploadedFile' => 'required|file|mimes:mp3,mp4|max:20480'
         ])){
-            // $uploadedFile = $request->all()['uploadedFile'];
-
-            // $path = $request->file('uploadedFile')->store('files');
 
             $file = $request->file('uploadedFile');
 
-            $name = $file->getClientOriginalName();
+            $fileName = $file->getClientOriginalName();
 
-            return $name;
+            $path = $request->file('uploadedFile')->storeAs('files',$fileName,'public');
+
+            return redirect()->route('transcribe');
         }
     }
 }
