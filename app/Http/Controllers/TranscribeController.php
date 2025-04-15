@@ -14,7 +14,8 @@ class TranscribeController extends Controller
     }
 
     public function getView(){
-        return view('transcribe');
+        $status = session('status');
+        return view('transcribe', compact($status));
     }
 
     public function transcribe(){
