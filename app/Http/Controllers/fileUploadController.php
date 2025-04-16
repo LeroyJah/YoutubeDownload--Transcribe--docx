@@ -18,7 +18,7 @@ class fileUploadController extends Controller
 
             $path = $request->file('uploadedFile')->storeAs('files',$fileName,'public');
 
-            return redirect()->route('transcribe')->with(session(['status' => 'The upload was succesful']));
+            return redirect()->route('transcribe')->with(session()->flash('status','The upload was successful'));
         }
     }
 }
