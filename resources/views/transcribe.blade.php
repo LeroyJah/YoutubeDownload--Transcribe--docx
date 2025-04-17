@@ -3,14 +3,14 @@
     Transcribe your youtube videos here
 </x-slot:heading>
 <h1 class="ml-2">
-    File upload max 20mb:
+    Max file upload 20mb:
 </h1>
 <div class="flex flex-row m-2 h-96 border border-gray-200 rounded-lg">
-    <div class="w-1/6 bg-white flex flex-col justify-center border border-gray-200 rounded-l-lg">
+    <div class="w-1/6 bg-white flex flex-col justify-center border border-gray-200 rounded-l-lg p-2">
         <div class="h-1/3 flex justify-center">
             Upload videos here:
         </div>
-        <div class="h-2/3 overflow-scroll p-2">
+        <div class="h-2/3 overflow-scroll">
             <form action="/savefile" method="post" enctype="multipart/form-data">
                 @csrf
                 <input class="border border-gray-300 hover:bg-gray-300 p-1 rounded" type="file" name="uploadedFile" id="fileUpload">
@@ -55,8 +55,20 @@
             @endforeach
         </div>
     </div>
-    <div class="w-1/6  flex justify-center bg-white border border-gray-200 rounded-r-lg">
-        Retrieve .docx here:
+    <div class="w-1/6 flex flex-col justify-center bg-white border border-gray-200 rounded-r-lg p-2">
+        <div class="h-1/4">
+            <h1>Retrieve .docx here:</h1>
+        </div>
+        <div class="h-3/4">
+        @foreach($docs as $doc)
+        <ul>
+            <li>
+            {{ $doc->getFilename(); }}
+            <button class="border border-green-400 rounded bg-green-400 hover:bg-green-600 text-white px-1">download</button>
+            </li>
+        </ul>
+        @endforeach
+        </div>
     </div>
 </div>
 </x-layout.layout>
