@@ -8,7 +8,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/transcribe', [TranscribeController::class,'getView'])->name('transcribe');
+Route::get('/transcribe/view', [TranscribeController::class,'getView'])->name('transcribeView');
+
+Route::post('/transcribe', [TranscribeController::class,'transcribe'])->name('transcribe');
 
 Route::post('/savefile', [fileUploadController::class,'saveFile']);
 

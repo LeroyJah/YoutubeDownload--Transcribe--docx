@@ -19,7 +19,7 @@ class fileUploadController extends Controller
 
             $path = $request->file('uploadedFile')->storeAs('files',$fileName,'public');
 
-            return redirect()->route('transcribe')->with(session()->flash('status','The upload was successful'));
+            return redirect()->route('transcribeView')->with(session()->flash('status','The upload was successful'));
         }
     }
 
@@ -30,6 +30,6 @@ class fileUploadController extends Controller
 
         File::delete($path);
 
-        return redirect()->route('transcribe');
+        return redirect()->route('transcribeView');
     }
 }

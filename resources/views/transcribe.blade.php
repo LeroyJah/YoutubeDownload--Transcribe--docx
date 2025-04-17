@@ -2,8 +2,8 @@
 <x-slot:heading>
     Transcribe your youtube videos here
 </x-slot:heading>
-<h1>
-    Welcome to the Transcribe Page
+<h1 class="ml-2">
+    File upload max 20mb:
 </h1>
 <div class="flex flex-row m-2 h-96 border border-gray-200 rounded-lg">
     <div class="w-1/6 bg-white flex flex-col justify-center border border-gray-200 rounded-l-lg">
@@ -35,18 +35,20 @@
         </div>
     </div>
     <div class="w-4/6 flex justify-center bg-white p-2 border border-gray-200">
-        <div>
-            <x-file-upload.button>Whisper</x-file-upload.button>
-        </div>
         <div class="overflow-auto">
             @foreach($files as $file)
             <ul>
-                <li>
+                <li class="flex flex-row p-2">
+                    <form action="/transcribe" method="post">
+                        @csrf
+                        <input type="hidden" name="path" value="{{ $file->getFilename(); }}">
+                        <button class="bg-blue-300 text-white rounded px-2 hover:bg-blue-600 mr-2">Whisper</button>
+                    </form>
                     <form action="/deletefile" method="post">
                         @csrf
                         {{ $file->getFilename(); }}
                         <input type="hidden" name="path" value="{{ $file->getFilename(); }}">
-                        <button class="border border-red-400 rounded bg-red-300 hover:bg-red-500 text-white px-1" type="submit">Delete</button>
+                        <button class="border border-red-400 rounded bg-red-300 hover:bg-red-500 text-white px-1">Delete</button>
                     </form>
                 </li>
             </ul>

@@ -24,8 +24,12 @@ class TranscribeController extends Controller
         }
     }
 
-    public function transcribe(){
-        $audioInput = fopen(storage_path('path to file'),'r'); //file path
+    public function transcribe(Request $request){
+        $fileName = $request->get('path');
+
+        $fileOpen = fopen(storage_path('app/public/files/'.$fileName),'r'); //file path
+
+        dd($fileOpen);
 
         $docPath = stream_get_meta_data($audioInput)['uri']; 
 
