@@ -21,4 +21,8 @@ class fileUploadController extends Controller
             return redirect()->route('transcribe')->with(session()->flash('status','The upload was successful'));
         }
     }
+
+    public function deleteFile(Request $request){
+        dd($request->all());
+    }
 }

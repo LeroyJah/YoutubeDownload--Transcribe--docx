@@ -11,3 +11,5 @@ Route::get('/', function () {
 Route::get('/transcribe', [TranscribeController::class,'getView'])->name('transcribe');
 
 Route::post('/savefile', [fileUploadController::class,'saveFile']);
+
+Route::post('/deletefile', [fileUploadController::class,'deleteFile'])->name('delete');

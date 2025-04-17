@@ -42,7 +42,12 @@
             @foreach($files as $file)
             <ul>
                 <li>
-                    {{ $file->getFilename(); }}
+                    <form action="/deletefile" method="post">
+                        @csrf
+                        {{ $file->getFilename(); }}
+                        <input type="hidden" name="path" value="{{ 'app/public/files/'.$file->getFilename(); }}">
+                        <button class="border border-red-400 rounded bg-red-300 hover:bg-red-500 text-white px-1" type="submit">Delete</button>
+                    </form>
                 </li>
             </ul>
             @endforeach
