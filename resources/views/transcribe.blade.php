@@ -55,7 +55,7 @@
             @endforeach
         </div>
     </div>
-    <div class="w-1/6 flex flex-col justify-center bg-white border border-gray-200 rounded-r-lg p-2">
+    <div class="w-1/6 flex flex-col justify-center bg-white border border-gray-200 rounded-r-lg p-2 overflow-auto">
         <div class="h-1/4">
             <h1>Retrieve .docx here:</h1>
         </div>
@@ -63,12 +63,21 @@
         @foreach($docs as $doc)
         <ul>
             <li>
-            {{ $doc->getFilename(); }}
-            <button class="border border-green-400 rounded bg-green-400 hover:bg-green-600 text-white px-1">download</button>
+                <form action="/download" method="post">
+                    @csrf
+                    {{ $doc->getFilename(); }}
+                    <input type="hidden" name="path" value="{{ $doc->getFilename(); }}">
+                    <button class="border border-green-400 rounded bg-green-400 hover:bg-green-600 text-white px-1">download</button>
+                </form>
             </li>
         </ul>
         @endforeach
         </div>
     </div>
 </div>
+@if(isset($transcribe))
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
+        {{ $transcribe }}
+    </div>
+@endif
 </x-layout.layout>
