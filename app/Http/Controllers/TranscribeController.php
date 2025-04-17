@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class TranscribeController extends Controller
 {
@@ -14,6 +16,8 @@ class TranscribeController extends Controller
     }
 
     public function getView(){
+        $files = File::allFiles(storage_path('app/public/files'));
+        dd($files);
         if(session()->has('status')){
             return view('transcribe', ['status' => session('status')]);
         }else{
