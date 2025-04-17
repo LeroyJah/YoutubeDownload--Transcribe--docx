@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class fileUploadController extends Controller
 {
@@ -23,6 +24,12 @@ class fileUploadController extends Controller
     }
 
     public function deleteFile(Request $request){
-        dd($request->all());
+        $fileName = $request->get('path');
+
+        $path = storage_path('app/public/files/'.$fileName);
+
+        File::delete($path);
+
+        return redirect()->route('transcribe');
     }
 }
