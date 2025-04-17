@@ -35,7 +35,18 @@
         </div>
     </div>
     <div class="w-4/6 flex justify-center bg-white p-2 border border-gray-200">
-        <x-file-upload.button>Whisper</x-file-upload.button>
+        <div>
+            <x-file-upload.button>Whisper</x-file-upload.button>
+        </div>
+        <div class="overflow-auto">
+            @foreach($files as $file)
+            <ul>
+                <li>
+                    {{ $file->getFilename(); }}
+                </li>
+            </ul>
+            @endforeach
+        </div>
     </div>
     <div class="w-1/6  flex justify-center bg-white border border-gray-200 rounded-r-lg">
         Retrieve .docx here:

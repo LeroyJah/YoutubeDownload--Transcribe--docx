@@ -3,25 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
 class TranscribeController extends Controller
 {
     private $token;
+    private $files;
 
     public function __construct()
     {
         $this->token = config('services.openai.secret');
+        $this->files = File::allFiles(storage_path('app/public/files'));
     }
 
     public function getView(){
-        $files = File::allFiles(storage_path('app/public/files'));
-        dd($files);
         if(session()->has('status')){
-            return view('transcribe', ['status' => session('status')]);
+            return view('transcribe', ['status' => session('status'), 'files' => $this->files]);
         }else{
-            return view('transcribe');
+            return view('transcribe',['files' => $this->files]);
         }
     }
 
