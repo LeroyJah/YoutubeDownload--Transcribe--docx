@@ -3,7 +3,7 @@
     Transcribe your youtube videos here
 </x-slot:heading>
 <h1 class="ml-2">
-    Max file upload 20mb:
+    Max file upload size 20mb:
 </h1>
 <div class="flex flex-row m-2 h-96 border border-gray-200 rounded-lg">
     <div class="w-1/6 bg-white flex flex-col justify-center border border-gray-200 rounded-l-lg p-2">
@@ -27,7 +27,7 @@
                 </div>
                 @endif
                 @if(isset($status))
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded" id="fadeDiv">
                     {{ $status }}
                 </div>
                 @endif
@@ -80,4 +80,10 @@
         {{ $transcribe }}
     </div>
 @endif
+<script>
+        setTimeout(() => {
+            const fadeDiv = document.getElementById('fadeDiv');
+            fadeDiv.classList.add('fade-out');
+        }, 5000); // 5000 milliseconds = 5 seconds
+    </script>
 </x-layout.layout>
