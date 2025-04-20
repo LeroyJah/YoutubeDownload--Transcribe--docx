@@ -121,5 +121,11 @@
     </div>
   </main>
 </div>
+<script>
+        setTimeout(() => {
+            const fadeDiv = document.getElementById('fadeDiv');
+            fadeDiv.classList.add('fade-out');
+        }, 5000); // 5000 milliseconds = 5 seconds
+    </script>
 </body>
 </html>

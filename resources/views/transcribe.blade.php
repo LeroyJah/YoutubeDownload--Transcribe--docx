@@ -5,7 +5,7 @@
 <h1 class="ml-2">
     Max file upload size 20mb:
 </h1>
-<div class="flex flex-row m-2 h-96 border border-gray-200 rounded-lg">
+<div class="flex flex-row m-2 h-max border border-gray-200 rounded-lg">
     <div class="w-1/6 bg-white flex flex-col justify-center border border-gray-200 rounded-l-lg p-2">
         <div class="h-1/3 flex justify-center">
             Upload videos here:
@@ -18,7 +18,7 @@
             </form>
             <div>
                 @if($errors->any())
-                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" id="fadeDiv">
                     <ul>
                         @foreach($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -27,7 +27,7 @@
                 </div>
                 @endif
                 @if(isset($status))
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded" id="fadeDiv">
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
                     {{ $status }}
                 </div>
                 @endif
@@ -67,8 +67,13 @@
                     @csrf
                     {{ $doc->getFilename(); }}
                     <input type="hidden" name="path" value="{{ $doc->getFilename(); }}">
-                    <button class="border border-green-400 rounded bg-green-400 hover:bg-green-600 text-white px-1">download</button>
+                    <button class="border border-green-400 rounded bg-green-400 hover:bg-green-600 text-white px-1 w-1/2">Download</button>
                 </form>
+                <form action="/deletedocx" method="post">
+                        @csrf
+                        <input type="hidden" name="path" value="{{ $doc->getFilename(); }}">
+                        <button class="border border-red-400 rounded bg-red-300 hover:bg-red-500 text-white px-1 w-1/2">Delete</button>
+                    </form>
             </li>
         </ul>
         @endforeach
@@ -80,10 +85,4 @@
         {{ $transcribe }}
     </div>
 @endif
-<script>
-        setTimeout(() => {
-            const fadeDiv = document.getElementById('fadeDiv');
-            fadeDiv.classList.add('fade-out');
-        }, 5000); // 5000 milliseconds = 5 seconds
-    </script>
 </x-layout.layout>

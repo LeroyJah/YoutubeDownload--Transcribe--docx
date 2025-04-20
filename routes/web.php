@@ -17,4 +17,6 @@ Route::post('/savefile', [fileUploadController::class,'saveFile']);
 
 Route::post('/deletefile', [fileUploadController::class,'deleteFile'])->name('delete');
 
+Route::post('/deletedocx', [fileUploadController::class,'deleteDocx'])->name('deleteDocx');
+
 Route::post('/download', [WordController::class,'download']);
