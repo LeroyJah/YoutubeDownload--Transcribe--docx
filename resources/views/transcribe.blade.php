@@ -47,7 +47,7 @@
                     <form action="/deletefile" method="post">
                         @csrf
                         {{ $file->getFilename(); }}
-                        <input type="hidden" name="path" value="{{ $file->getFilename(); }}">
+                        <input type="hidden" name="path" value="{{ 'files/'.$file->getFilename(); }}">
                         <button class="border border-red-400 rounded bg-red-300 hover:bg-red-500 text-white px-1">Delete</button>
                     </form>
                 </li>
@@ -69,9 +69,9 @@
                     <input type="hidden" name="path" value="{{ $doc->getFilename(); }}">
                     <button class="border border-green-400 rounded bg-green-400 hover:bg-green-600 text-white px-1 w-1/2">Download</button>
                 </form>
-                <form action="/deletedocx" method="post">
+                <form action="/deletefile" method="post">
                         @csrf
-                        <input type="hidden" name="path" value="{{ $doc->getFilename(); }}">
+                        <input type="hidden" name="path" value="{{ 'transcript/'.$doc->getFilename(); }}">
                         <button class="border border-red-400 rounded bg-red-300 hover:bg-red-500 text-white px-1 w-1/2">Delete</button>
                     </form>
             </li>

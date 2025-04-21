@@ -24,19 +24,10 @@ class fileUploadController extends Controller
     }
 
     public function deleteFile(Request $request){
-        $fileName = $request->get('path');
 
-        $path = storage_path('app/public/files/'.$fileName);
+        $filePath = $request->get('path');
 
-        File::delete($path);
-
-        return redirect()->route('transcribeView');
-    }
-
-    public function deleteDocx(Request $request){
-        $fileName = $request->get('path');
-
-        $path = storage_path('app/public/transcript/'.$fileName);
+        $path = storage_path('app/public/'.$filePath);
 
         File::delete($path);
 
