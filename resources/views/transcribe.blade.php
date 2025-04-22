@@ -5,7 +5,7 @@
 <h1 class="ml-2">
     Max file upload size 20mb:
 </h1>
-<div class="flex flex-row m-2 h-max border border-gray-200 rounded-lg">
+<div class="flex flex-row m-2 h-[70vh] border border-gray-200 rounded-lg">
     <div class="w-1/6 bg-white flex flex-col justify-center border border-gray-200 rounded-l-lg p-2">
         <div class="h-1/3 flex justify-center">
             Upload videos here:
@@ -43,6 +43,7 @@
                         @csrf
                         <input type="hidden" name="path" value="{{ $file->getFilename(); }}">
                         <button class="bg-blue-300 text-white rounded px-2 hover:bg-blue-600 mr-2">Whisper</button>
+                        <x-file-upload.loading>Processing..</x-file-upload.loading>
                     </form>
                     <form action="/deletefile" method="post">
                         @csrf
@@ -56,10 +57,10 @@
         </div>
     </div>
     <div class="w-1/6 flex flex-col justify-center bg-white border border-gray-200 rounded-r-lg p-2 overflow-auto">
-        <div class="h-1/4">
+        <div class="h-1/3">
             <h1>Retrieve .docx here:</h1>
         </div>
-        <div class="h-3/4">
+        <div class="h-2/3">
         @foreach($docs as $doc)
         <ul>
             <li>

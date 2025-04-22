@@ -55,7 +55,5 @@ class TranscribeController extends Controller
         $word->exportData($decode->text,$pathTrim);
 
         return redirect()->route('transcribeView')->with(session()->flash('transcribe','The transcribe was successful'));
-
-        return "exported the file";
     }
 }
