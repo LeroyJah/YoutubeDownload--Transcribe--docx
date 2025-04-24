@@ -39,11 +39,10 @@
             @foreach($files as $file)
             <ul>
                 <li class="flex flex-row p-2">
-                <livewire:loading>
                     <form action="/transcribe" method="post">
                         @csrf
                         <input type="hidden" name="path" value="{{ $file->getFilename(); }}">
-                        <button class="bg-blue-300 text-white rounded px-2 hover:bg-blue-600 mr-2">Whisper</button>
+                        <livewire:loading>
                     </form>
                     <form action="/deletefile" method="post">
                         @csrf

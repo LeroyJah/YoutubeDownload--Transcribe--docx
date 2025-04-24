@@ -32,7 +32,7 @@ class TranscribeController extends Controller
     public function transcribe(Request $request){
         $fileName = $request->get('path');
 
-        $fileOpen = fopen(storage_path('app/public/files/'.$fileName),'r'); //file path
+        $fileOpen = fopen(storage_path('app/public/files/'.$fileName),'r'); //opening file for upload purposes
 
         $docPath = stream_get_meta_data($fileOpen)['uri']; //name of the file
 
