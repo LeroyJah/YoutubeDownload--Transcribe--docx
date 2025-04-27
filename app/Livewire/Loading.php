@@ -20,6 +20,10 @@ class Loading extends Component
         $this->buttonText = $text;
     }
 
+    public function save(){
+        $this->redirect('/transcribe');
+    }
+
     public function render()
     {
         return view('livewire.loading');

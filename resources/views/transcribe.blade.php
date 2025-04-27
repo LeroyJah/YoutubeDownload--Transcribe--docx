@@ -39,7 +39,7 @@
             @foreach($files as $file)
             <ul>
                 <li class="flex flex-row p-2">
-                    <form action="/transcribe" method="post">
+                    <form wire:submit="save">
                         @csrf
                         <input type="hidden" name="path" value="{{ $file->getFilename(); }}">
                         <livewire:loading>
