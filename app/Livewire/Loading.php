@@ -3,12 +3,20 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\File;
 
 class Loading extends Component
 {
     public $style = "bg-blue-300 text-white rounded px-2 hover:bg-blue-600 mr-2";
     public $buttonText = "Whisper"; 
     public $icon = false;
+
+    public $path;
+    public $files;
+
+    public function __construct(){
+        $this->files = File::allFiles(storage_path('app/public/files'));
+    }
 
     public function changeStyle($style){
         $this->style = $style;
@@ -20,8 +28,8 @@ class Loading extends Component
         $this->buttonText = $text;
     }
 
-    public function save(){
-        $this->redirect('/transcribe');
+    public function display(){
+        return redirect()->route('/');
     }
 
     public function render()
