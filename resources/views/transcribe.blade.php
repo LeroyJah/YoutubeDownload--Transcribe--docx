@@ -37,17 +37,20 @@
     <div class="w-4/6 flex justify-center bg-white p-2 border border-gray-200">
         <div class="overflow-auto">
             @foreach($files as $file)
-            <ul>
-                <li class="flex flex-row p-2">
-                <livewire:loading :$file :key="{{ $file->getFilename(); }}">
-                    <form action="/deletefile" method="post">
-                        @csrf
-                        {{ $file->getFilename(); }}
-                        <input type="hidden" name="path" value="{{ 'files/'.$file->getFilename(); }}">
-                        <button class="border border-red-400 rounded bg-red-300 hover:bg-red-500 text-white px-1">Delete</button>
-                    </form>
-                </li>
-            </ul>
+                <ul wire:key="{{ $file->getFilename(); }}">
+                    <li class="flex flex-row p-2">
+                        <div>
+
+                            <x-test :file="$file"/> 
+                        </div>
+                        <form action="/deletefile" method="post">
+                            @csrf
+                            {{ $file->getFilename(); }}
+                            <input type="hidden" name="path" value="{{ 'files/'.$file->getFilename(); }}">
+                            <button class="border border-red-400 rounded bg-red-300 hover:bg-red-500 text-white px-1">Delete</button>
+                        </form>
+                    </li>
+                </ul>
             @endforeach
         </div>
     </div>

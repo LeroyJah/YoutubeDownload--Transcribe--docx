@@ -11,11 +11,10 @@ class Loading extends Component
     public $buttonText = "Whisper"; 
     public $icon = false;
 
-    public $path;
-    public $files;
+    public $file;
 
-    public function __construct(){
-        $this->files = File::allFiles(storage_path('app/public/files'));
+    public function mount($file){
+        $this->file = $file;
     }
 
     public function changeStyle($style){
