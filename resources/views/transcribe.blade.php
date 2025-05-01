@@ -37,11 +37,10 @@
     <div class="w-4/6 flex justify-center bg-white p-2 border border-gray-200">
         <div class="overflow-auto">
             @foreach($files as $file)
-                <ul wire:key="{{ $file->getFilename(); }}">
+                <ul>
                     <li class="flex flex-row p-2">
                         <div>
-
-                            <x-test :file="$file"/> 
+                            <livewire:loading :file="$file" :wire:key="$file">
                         </div>
                         <form action="/deletefile" method="post">
                             @csrf
