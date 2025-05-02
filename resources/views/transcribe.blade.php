@@ -40,7 +40,7 @@
                 <ul>
                     <li class="flex flex-row p-2">
                         <div>
-                            <livewire:loading :file="$file" :wire:key="$file">
+                            <livewire:test :file="$file" :key="$file->getFilename()">
                         </div>
                         <form action="/deletefile" method="post">
                             @csrf
