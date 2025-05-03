@@ -8,24 +8,11 @@ use Illuminate\Support\Facades\Http;
 
 class Loading extends Component
 {
-    public $style = "bg-blue-300 text-white rounded px-2 hover:bg-blue-600 mr-2";
-    public $buttonText = "Whisper"; 
-    public $icon = false;
-    public $fileName;
     private $token;
+    public $fileName;
 
     public function __construct(){
         $this->token = config('services.openai.secret');
-    }
-
-    public function changeStyle($style){
-        $this->style = $style;
-        $this->changeText('Processing..');
-        $this->icon = true;
-    }
-
-    public function changeText($text){
-        $this->buttonText = $text;
     }
 
     public function mount($fileName){
