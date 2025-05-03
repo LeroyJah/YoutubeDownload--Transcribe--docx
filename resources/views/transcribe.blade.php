@@ -54,10 +54,10 @@
         </div>
     </div>
     <div class="w-1/6 flex flex-col justify-center bg-white border border-gray-200 rounded-r-lg p-2 overflow-auto">
-        <div class="h-1/3">
+        <div class="h-1/6">
             <h1>Retrieve .docx here:</h1>
         </div>
-        <div class="h-2/3">
+        <div class="h-5/6">
         @foreach($docs as $doc)
         <ul>
             <li>

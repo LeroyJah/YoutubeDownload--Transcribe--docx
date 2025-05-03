@@ -10,13 +10,17 @@ class Loading extends Component
 {
     private $token;
     public $fileName;
+    public $buttonText;
+    private $doc;
 
     public function __construct(){
         $this->token = config('services.openai.secret');
+        $this->doc = new \PhpOffice\PhpWord\PhpWord();
     }
 
     public function mount($fileName){
         $this->fileName = $fileName;
+        $this->buttonText = "Processing..";
     }
 
     public function wireTranscribe(){
@@ -30,6 +34,8 @@ class Loading extends Component
 
         $pathTrim = substr($docPath,$trimPosition); //trim to only keep original file name
 
+        $this->buttonText = "Trimming";
+
         $response = Http::withHeaders([
             'authorization' => 'bearer '.$this->token,
             ])->attach('file',$fileOpen,$pathTrim)
@@ -38,13 +44,31 @@ class Loading extends Component
 
         $decode = json_decode($response);
 
-        dd($decode);
+        // $decode = "This is a test string";
 
-        $word = new WordController;
-
-        $word->exportData($decode->text,$pathTrim);
+        $word = $this->exportData($decode->text,$pathTrim); //$decode->text for http request
 
         return redirect()->route('transcribeView')->with(session()->flash('transcribe','The transcribe was successful'));
+    }
+
+    public function exportData($docText,$docName)
+    {
+        $pathToFile = storage_path('app/public/transcript'.$docName.'.docx');
+
+        $section = $this->doc->addSection();
+        $section->addText($docText);
+
+        $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($this->doc, 'Word2007');
+        $objWriter->save($pathToFile);
+    }
+
+    public function download(Request $request){
+        $fileName = $request->get('path');
+
+        $pathToFile = storage_path('app/public/transcript/'.$fileName);
+
+        return response()->download($pathToFile);
+
     }
 
     public function render()
