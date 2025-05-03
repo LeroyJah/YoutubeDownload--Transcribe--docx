@@ -7,7 +7,7 @@ use App\Http\Controllers\WordController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/transcribe/view', [TranscribeController::class,'getView'])->name('transcribeView');
 

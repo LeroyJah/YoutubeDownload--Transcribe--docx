@@ -28,7 +28,7 @@ class Loading extends Component
     }
 
     public function display(){
-        return redirect()->route('/');
+        return redirect()->route('home');
     }
 
     public function render()

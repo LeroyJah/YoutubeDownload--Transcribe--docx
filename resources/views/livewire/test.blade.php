@@ -1,3 +1,3 @@
 <div>
-        <button wire:key="{{ $file->getFilename()}}">{{ $file }}</button>
+        <button class="border">{{ $file }}</button>
 </div>
