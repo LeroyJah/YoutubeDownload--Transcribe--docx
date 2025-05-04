@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TranscribeController;
 use App\Http\Controllers\fileUploadController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\WordController;
 
 Route::get('/', function () {
@@ -10,6 +11,8 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/transcribe/view', [TranscribeController::class,'getView'])->name('transcribeView');
+
+Route::get('/download/view', [DownloadController::class,'getView'])->name('downloadView');
 
 Route::post('/transcribe', [TranscribeController::class,'transcribe'])->name('transcribe');
 

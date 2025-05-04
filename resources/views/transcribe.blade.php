@@ -1,6 +1,6 @@
 <x-layout.layout>
 <x-slot:heading>
-    Transcribe your youtube videos here
+    Transcribe your videos here
 </x-slot:heading>
 <h1 class="ml-2">
     Max file upload size 20mb:
