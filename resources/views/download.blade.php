@@ -6,7 +6,10 @@
 </h1>
 <div class="flex flex-row m-2 h-[70vh] border border-gray-200 rounded-lg">
     <div class="w-1/6 bg-white flex flex-col justify-center border border-gray-200 rounded-l-lg p-2">
-        <div class="h-1/3 flex justify-center">
+        <div class="h-1/3 flex justify-center p-5">
+            <form class="p-5" action="">
+                <input class="border w-40 pl-2" type="text" placeholder="input link">
+            </form>
         </div>
         <div class="h-2/3 overflow-scroll">
         </div>
