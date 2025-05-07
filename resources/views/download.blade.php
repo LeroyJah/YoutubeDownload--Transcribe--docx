@@ -7,9 +7,21 @@
 <div class="flex flex-row m-2 h-[70vh] border border-gray-200 rounded-lg">
     <div class="w-1/6 bg-white flex flex-col justify-center border border-gray-200 rounded-l-lg p-2">
         <div class="h-1/3 flex justify-center p-5">
-            <form class="p-5" action="">
-                <input class="border w-40 pl-2" type="text" placeholder="input link">
-            </form>
+            <div clas="m-2">
+                <form class="border rounded-xl" action="">
+                    <input class="border m-2 w-40 pl-2" type="text" placeholder="input link">
+                    <div class="m-2">
+                        <input type="radio" name="quality" checked>
+                        <label for="">360p</label><br>
+                        <input type="radio" name="quality">
+                        <label for="">480p</label><br>
+                        <input type="radio" name="quality">
+                        <label for="">720p</label><br>
+                        <input type="radio" name="quality">
+                        <label for="">1080p</label><br>
+                    </div>
+                </form>
+            </div>
         </div>
         <div class="h-2/3 overflow-scroll">
         </div>
