@@ -10,16 +10,7 @@
             <div clas="m-2">
                 <form class="border rounded-xl" action="">
                     <input class="border m-2 w-40 pl-2" type="text" placeholder="input link">
-                    <div class="m-2">
-                        <input type="radio" name="quality" checked>
-                        <label for="">360p</label><br>
-                        <input type="radio" name="quality">
-                        <label for="">480p</label><br>
-                        <input type="radio" name="quality">
-                        <label for="">720p</label><br>
-                        <input type="radio" name="quality">
-                        <label for="">1080p</label><br>
-                    </div>
+                    <livewire:radio>
                 </form>
             </div>
         </div>
