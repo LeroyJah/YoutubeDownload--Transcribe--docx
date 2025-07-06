@@ -5,6 +5,7 @@ use App\Http\Controllers\TranscribeController;
 use App\Http\Controllers\fileUploadController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\WordController;
+use App\Http\Controllers\WaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,6 +14,8 @@ Route::get('/', function () {
 Route::get('/transcribe/view', [TranscribeController::class,'getView'])->name('transcribeView');
 
 Route::get('/download/view', [DownloadController::class,'getView'])->name('downloadView');
+
+Route::get('/wa/view', [WaController::class,'getView'])->name('waView');
 
 Route::post('/transcribe', [TranscribeController::class,'transcribe'])->name('transcribe');
 
