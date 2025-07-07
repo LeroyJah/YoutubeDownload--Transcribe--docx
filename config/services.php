@@ -39,4 +39,8 @@ return [
         'secret' => env('OPENAI_API_KEY')
     ],
 
+    'whatsapp' => [
+        'secret' => env('WHATSAPP_KEY')
+    ],
+
 ];

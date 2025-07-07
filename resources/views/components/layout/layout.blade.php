@@ -29,7 +29,7 @@
               <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
               <x-nav-link href="/download/view" :active="request()->is('download/view')">Video Download</x-nav-link>
               <x-nav-link href="/transcribe/view" :active="request()->is('transcribe/view')">Transcribe</x-nav-link>
-                <x-nav-link href="/wa/view" :active="request()->is('wa/view')">WhatApp</x-nav-link>
+                <x-nav-link href="/wa/view" :active="request()->is('wa/view')">WhatsApp</x-nav-link>
             </div>
           </div>
         </div>

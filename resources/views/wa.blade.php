@@ -1,6 +1,6 @@
 <x-layout.layout>
 <x-slot:heading>
-    Download your Youtube videos here
+    Configure WhatsApp chatbot here
 </x-slot:heading>
 <h1 class="ml-2">
 </h1>
@@ -12,9 +12,11 @@
         </div>
     </div>
     <div class="w-4/6 flex justify-center bg-white p-2 border border-gray-200">
-        <div class="">
-            <button class="border rounded px-1">Click me!</button>
-        </div>
+        <form action="{{ route('sendMessage') }}" method="post">
+            @csrf
+            <input type="hidden" value="">
+                <button type="submit" class="border rounded px-1 bg-blue-400 hover:bg-blue-700 text-white">Click me!</button>
+        </form>
     </div>
     <div class="w-1/6 flex flex-col justify-center bg-white border border-gray-200 rounded-r-lg p-2 overflow-auto">
         <div class="h-1/6">

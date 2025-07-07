@@ -17,6 +17,8 @@ Route::get('/download/view', [DownloadController::class,'getView'])->name('downl
 
 Route::get('/wa/view', [WaController::class,'getView'])->name('waView');
 
+Route::post('/wa/view/send', [WaController::class,'sendMessage'])->name('sendMessage');
+
 Route::post('/transcribe', [TranscribeController::class,'transcribe'])->name('transcribe');
 
 Route::post('/savefile', [fileUploadController::class,'saveFile']);
