@@ -17,18 +17,18 @@ class WaController extends Controller
     public function sendMessage()
     {
         $response = Http::withHeaders([
-            'authorization' => 'bearer '.$this->token,
+            'authorization' => 'Bearer '.$this->token,
             'Content-Type' => 'application/json'
-        ])->post('https://graph.facebook.com/v22.0/677078752161030/messages',[
+        ])->post('https://graph.facebook.com/v22.0/677078752161030/messages?',[
             'messaging_product' => 'whatsapp',
-//            'to' => '31612430324',
-//            'type' => 'template',
-//            'template' => [
-//                'name' => 'hello_world',
-//                'language' => [
-//                    'code' => 'en_US'
-//                ]
-//            ]
+            'to' => '31612430324',
+            'type' => 'template',
+            'template' => [
+                'name' => 'hello_world',
+                'language' => [
+                    'code' => 'en_US'
+                ]
+            ]
         ]);
 
         dd($response->json());
