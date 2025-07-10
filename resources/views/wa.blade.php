@@ -13,10 +13,6 @@
     </div>
     <div class="w-4/6 flex justify-center bg-white p-2 border border-gray-200">
         <livewire:send-test-message/>
-        <form action="{{ route('sendMessage') }}" method="post">
-            @csrf
-                <button type="submit" class="border rounded px-1 bg-blue-400 hover:bg-blue-700 text-white">Send test message</button>
-        </form>
     </div>
     <div class="w-1/6 flex flex-col justify-center bg-white border border-gray-200 rounded-r-lg p-2 overflow-auto">
         <div class="h-1/6">
