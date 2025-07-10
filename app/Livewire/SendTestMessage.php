@@ -8,10 +8,17 @@ class SendTestMessage extends Component
 {
     public $defaultNumber = "31612430324";
     public $phoneNumber;
+    public $active = false;
 
     public function setDefaultNumber()
     {
-        $this->phoneNumber = $this->defaultNumber;
+        if($this->active === false){
+            $this->phoneNumber = $this->defaultNumber;
+            $this->active = true;
+        }else{
+            $this->phoneNumber = "";
+            $this->active = false;
+        }
     }
 
     public function render()
