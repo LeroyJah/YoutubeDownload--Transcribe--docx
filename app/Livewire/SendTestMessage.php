@@ -4,10 +4,13 @@ namespace App\Livewire;
 
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
+use Livewire\Attributes\Rule;
 
 class SendTestMessage extends Component
 {
     public $defaultNumber = "31612430324";
+    #[Rule('required', message:'Field needs to be filled in.')]
+    #[Rule('regex: /^[0-9]+$/', message:'Enter a valid phone number.')]
     public $phoneNumber;
     public $active = false;
     public $token;
@@ -30,6 +33,8 @@ class SendTestMessage extends Component
 
     public function sendMessage()
     {
+        $this->validate();
+
         $response = Http::withHeaders([
             'authorization' => 'Bearer '.$this->token,
             'Content-Type' => 'application/json'
