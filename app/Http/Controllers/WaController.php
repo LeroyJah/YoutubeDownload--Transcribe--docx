@@ -32,8 +32,6 @@ class WaController extends Controller
         ]);
 
         dd($response->json());
-
-//  -d '{ "messaging_product": "whatsapp", "to": "31612430324", "type": "template", "template": { "name": "hello_world", "language": { "code": "en_US" } } }'
     }
     public function getview()
     {
