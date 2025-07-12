@@ -14,7 +14,9 @@ class WaController extends Controller
     }
     public function sendMessage(Request $request)
     {
+        dd($request->all());
         $phoneNumber = $request->get('phonenumber');
+        $templateName = $request->get('templatename');
 
         $response = Http::withHeaders([
             'authorization' => 'Bearer '.$this->token,
@@ -24,7 +26,7 @@ class WaController extends Controller
             'to' => $phoneNumber,
             'type' => 'template',
             'template' => [
-                'name' => 'hello_world',
+                'name' => $templateName,
                 'language' => [
                     'code' => 'en_US'
                 ]

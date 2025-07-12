@@ -13,6 +13,8 @@ class SendTestMessage extends Component
     public $phoneNumber;
     public $active = false;
 
+    public $templateName = "hello_world";
+
     public function setDefaultNumber()
     {
         if($this->active === false){
