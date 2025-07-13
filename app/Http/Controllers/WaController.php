@@ -58,6 +58,32 @@ class WaController extends Controller
 
     public function interactiveMessage(Request $request)
     {
+        $buttons = [
+            [
+                "type" => "reply",
+                "reply" => [
+                    "id" => "centrum-btn",
+                    "title" => "Almere-centrum"
+                ]
+            ],
+            [
+                "type" => "reply",
+                "reply" => [
+                    "id" => "buiten-btn",
+                    "title" => "Almere-buiten"
+                ]
+            ],
+            [
+                "type" => "reply",
+                "reply" => [
+                    "id" => "lelystad-btn",
+                    "title" => "Lelystad"
+                ]
+            ]
+        ];
+
+        dd(json_encode($buttons));
+
         $phoneNumber = $request->get('phonenumber');
         $serviceMessage = $request->get('servicemessage');
 
@@ -83,27 +109,7 @@ class WaController extends Controller
                 ],
                 'action' => [
                     'buttons' => [[
-//                        [
-//                            'type' => 'reply',
-//                            'reply' => [
-//                                'id' => 'centrum-btn',
-//                                'title' => 'Almere-Centrum'
-//                            ]
-//                        ],
-
-                            'type' => 'reply',
-                            'reply' => [
-                                'id' => 'buiten-btn',
-                                'title' => 'Almere-Buiten'
-                            ]
-                        ,
-//                        [
-//                            'type' => 'reply',
-//                            'reply' => [
-//                                'id' => 'lelystad-btn',
-//                                'title' => 'Lelystad'
-//                            ]
-//                        ]
+                        $buttons
                     ]]
                 ]
             ]
