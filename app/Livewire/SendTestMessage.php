@@ -15,6 +15,8 @@ class SendTestMessage extends Component
 
     public $templateName = "hello_world";
 
+    public $serviceMessage;
+
     public function setDefaultNumber()
     {
         if($this->active === false){

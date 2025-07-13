@@ -12,9 +12,8 @@ class WaController extends Controller
     {
         $this->token = config('services.whatsapp.secret');
     }
-    public function sendMessage(Request $request)
+    public function templateMessage(Request $request)
     {
-        dd($request->all());
         $phoneNumber = $request->get('phonenumber');
         $templateName = $request->get('templatename');
 
@@ -30,6 +29,27 @@ class WaController extends Controller
                 'language' => [
                     'code' => 'en_US'
                 ]
+            ]
+        ]);
+
+        dd($response->json());
+    }
+
+    public function serviceMessage(Request $request)
+    {
+        $phoneNumber = $request->get('phonenumber');
+        $serviceMessage = $request->get('servicemessage');
+
+        $response = Http::withHeaders([
+            'authorization' => 'Bearer '.$this->token,
+            'Content-Type' => 'application/json'
+        ])->post('https://graph.facebook.com/v22.0/677078752161030/messages?',[
+            'messaging_product' => 'whatsapp',
+            'recipient_type' => 'individual',
+            'to' => $phoneNumber,
+            'type' => 'text',
+            'text' => [
+                'body' => $serviceMessage
             ]
         ]);
 
