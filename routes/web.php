@@ -21,6 +21,8 @@ Route::post('/wa/view/send', [WaController::class,'templateMessage'])->name('tem
 
 Route::post('/wa/view/chat', [WaController::class,'serviceMessage'])->name('serviceMessage');
 
+Route::post('/wa/view/interactive', [WaController::class,'interactiveMessage'])->name('interactiveMessage');
+
 Route::post('/transcribe', [TranscribeController::class,'transcribe'])->name('transcribe');
 
 Route::post('/savefile', [fileUploadController::class,'saveFile']);

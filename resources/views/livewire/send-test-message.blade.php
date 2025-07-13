@@ -46,4 +46,11 @@
             @enderror
         </div>
     </div>
+    <div>
+        <form action="{{ route('interactiveMessage') }}" method="post">
+            @csrf
+            <input type="text" value="{{ $phoneNumber }}" name="phonenumber" class="border rounded" placeholder="+316" wire:model.live="phoneNumber">
+            <button class="border rounded bg-blue-400 hover:bg-blue-700 text-white px-1">Send interactive message</button>
+        </form>
+    </div>
 </div>
