@@ -21,7 +21,7 @@
         </div>
         <div class="h-5/6">
             <h1 class="font-bold">Prices:</h1>
-            <table class="border rounded-lg">
+            <table class="price-table">
                 <tr>
                     <th>Type</th>
                     <th>Price</th>

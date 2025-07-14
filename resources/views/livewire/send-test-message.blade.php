@@ -46,7 +46,7 @@
             @enderror
         </div>
     </div>
-    <div>
+    <div class="py-10 p-1 m-1 border rounded">
         <form action="{{ route('interactiveMessage') }}" method="post">
             @csrf
             <input type="text" value="{{ $phoneNumber }}" name="phonenumber" class="border rounded" placeholder="+316" wire:model.live="phoneNumber">
