@@ -32,11 +32,11 @@
     </div>
     <div>
         <h1 class="m-1">Service Message sender:</h1>
-        <div class="py-10 p-1 m-1 border rounded">
+        <div class="py-10 p-1 m-1 border rounded bg-green-100">
             <form action="{{ route('serviceMessage') }}" method="post">
                 @csrf
-                <input type="text" value="{{ $phoneNumber }}" name="phonenumber" class="border rounded" placeholder="+316" wire:model.live="phoneNumber">
-                <input type="text" value="{{ $serviceMessage }}" name="servicemessage" class="border rounded" placeholder="Enter text here" wire:model.live="serviceMessage">
+                <input type="text" value="{{ $phoneNumber }}" name="phonenumber" class="border rounded bg-white" placeholder="+316" wire:model.live="phoneNumber">
+                <input type="text" value="{{ $serviceMessage }}" name="servicemessage" class="border rounded bg-white" placeholder="Enter text here" wire:model.live="serviceMessage">
                 <button class="border rounded bg-blue-400 hover:bg-blue-700 text-white px-1">Send service message</button>
             </form>
             @error('phoneNumber')
@@ -46,6 +46,7 @@
             @enderror
         </div>
     </div>
+    <h1 class="m-1">Interactive Message sender:</h1>
     <div class="py-10 p-1 m-1 border rounded">
         <form action="{{ route('interactiveMessage') }}" method="post">
             @csrf
