@@ -54,4 +54,8 @@
             <button class="border rounded bg-blue-400 hover:bg-blue-700 text-white px-1">Send interactive message</button>
         </form>
     </div>
+    <h1>Webhook</h1>
+    <div class="border rounded">
+        {{ "app.js" }}
+    </div>
 </div>
