@@ -10,7 +10,7 @@
         </div>
         <div class="h-5/6 overflow-scroll">
             <h1 class="font-bold">Note:</h1>
-            <h1 class="border rounded p-1">Template messages are the only type that can be sent outside of a 24h customer service window.</h1>
+            <h1 class="border rounded p-1"><b>Template messages</b> are the only type that can be sent outside of a 24h customer service window.</h1>
         </div>
     </div>
     <div class="w-4/6 flex justify-center bg-white p-2 border border-gray-200">

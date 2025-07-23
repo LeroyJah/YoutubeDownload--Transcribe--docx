@@ -75,7 +75,7 @@ class WaController extends Controller
                     'text' => 'Welkom bij Soapclub'
                 ],
                 'body' => [
-                    'text' => 'Op welke locatie bevindt u zich momenteel'
+                    'text' => 'Op welke locatie bevindt u zich momenteel?'
                 ],
                 'footer' => [
                     'text' => ''
@@ -86,14 +86,14 @@ class WaController extends Controller
                             'type' => 'reply',
                             'reply' => [
                                 'id' => 'centrum-btn',
-                                'title' => 'Almere-centrum'
+                                'title' => 'Almere-Centrum'
                             ]
                         ],
                         [
                             'type' => 'reply',
                             'reply' => [
                                 'id' => 'buiten-btn',
-                                'title' => 'Almere-buiten'
+                                'title' => 'Almere-Buiten'
                             ]
                         ],
                         [
