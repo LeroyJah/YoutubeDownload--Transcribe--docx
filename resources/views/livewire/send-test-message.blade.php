@@ -61,6 +61,10 @@
     </div>
     <h1>Webhook</h1>
     <div class="border rounded">
-        {{ "app.js" }}
+        {{ "app.js" }} 
+        <form action="{{ route('uploadimage') }}" method="post">
+            @csrf
+            <button class="bg-red-100 p-2 m-2 rounded hover:bg-red-400">upload image Test</button>
+        </form>
     </div>
 </div>

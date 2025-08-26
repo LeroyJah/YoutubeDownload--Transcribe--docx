@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class WaController extends Controller
 {
@@ -71,7 +72,7 @@ class WaController extends Controller
             'interactive' => [
                 'type' => 'button',
                 'header' => [
-                    'type' => 'text',
+                    'type' => 'image',
                     'text' => 'Welkom bij Soapclub'
                 ],
                 'body' => [
@@ -110,6 +111,19 @@ class WaController extends Controller
 
         dd($response->json());
     }
+
+    // public function uploadImage()
+    // {
+    //     $response = Http::withHeaders([
+    //         'authorization' => 'Bearer '.$this->token,
+    //         'Content-Type' => 'image/jpeg'
+    //     ])->post('https://graph.facebook.com/v22.0/677078752161030/v1/media',[
+    //         // storage_path('app/public/SC_gevelreclame.jpg')
+    //     ]);
+
+    //     dd($response->json());
+    // }
+
     public function getview()
     {
         return view('wa');
